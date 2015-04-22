@@ -1,0 +1,21 @@
+server:
+  port: 8761
+
+eureka:
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+  server:
+    waitTimeInMsWhenSyncEmpty: 0
+
+oauth2:
+  client:
+    tokenUri: http://localhost:8080/uaa/oauth/token
+    authorizationUri: http://localhost:8080/uaa/oauth/authorize
+    clientId: acme
+    clientSecret: acmesecret
+  resource:
+    jwt:
+      keyValue: http://localhost:8080/uaa/oauth/token_key
+      id: openid
+      serviceId: ${PREFIX:}resource
